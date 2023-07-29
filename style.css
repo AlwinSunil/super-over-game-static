@@ -33,7 +33,7 @@ body {
   margin: 3rem;
 }
 
-.teams p {
+.teams > p {
   font-size: 4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -75,6 +75,8 @@ body {
 
 .over {
   margin: 1rem 0rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .balls {
@@ -82,6 +84,11 @@ body {
   height: 2.5rem;
   background-color: white;
   border-radius: 50%;
-  display: inline-block;
   margin: 0.2rem;
+}
+
+.balls > p {
+  color: black;
+  font-size: 1.65rem;
+  font-weight: bolder;
 }
