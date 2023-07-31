@@ -58,6 +58,12 @@ batBtn.addEventListener("click", () => {
 
   numberOfBalls = numberOfBalls + 1;
 
+  if (team1wicket === 2) {
+    numberOfBalls = 6;
+  } else if (team2wicket === 2) {
+    numberOfBalls = 12;
+  }
+
   if (numberOfBalls >= 12) {
     gameOverAudio.play();
     if (team1score > team2score) {
