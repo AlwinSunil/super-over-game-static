@@ -28,16 +28,7 @@ batBtn.addEventListener("click", () => {
   let ballElem = document.querySelectorAll(".balls");
   let scoreParaElem = document.createElement("p");
 
-  if (numberOfBalls >= 12) {
-    gameOverAudio.play();
-    if (team1score > team2score) {
-      alert("IND Won");
-    } else if (team1score == team2score) {
-      alert("Match is draw!");
-    } else {
-      alert("PAK Won");
-    }
-  } else {
+  if (numberOfBalls < 12) {
     strikeAudio.pause();
     strikeAudio.currentTime = 0;
     strikeAudio.play();
@@ -64,7 +55,19 @@ batBtn.addEventListener("click", () => {
 
     ballElem[numberOfBalls].appendChild(scoreParaElem);
   }
+
   numberOfBalls = numberOfBalls + 1;
+
+  if (numberOfBalls >= 12) {
+    gameOverAudio.play();
+    if (team1score > team2score) {
+      alert("IND Won");
+    } else if (team1score == team2score) {
+      alert("Match is draw!");
+    } else {
+      alert("PAK Won");
+    }
+  }
 });
 
 resetBtn.addEventListener("click", () => {
