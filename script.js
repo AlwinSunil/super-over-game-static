@@ -9,6 +9,9 @@ let team2score = 0;
 let team1wicket = 0;
 let team2wicket = 0;
 
+let team1flag = true;
+let team2flag = true;
+
 const strikeAudio = new Audio("http://bit.ly/so-ball-hit");
 const gameOverAudio = new Audio("http://bit.ly/so-crowd-cheer");
 
@@ -33,7 +36,7 @@ batBtn.addEventListener("click", () => {
     strikeAudio.currentTime = 0;
     strikeAudio.play();
 
-    if (randomNumber == 7) {
+    if (randomNumber != 7) {
       scoreParaElem.innerText = "W";
       if (numberOfBalls < 6) {
         team1wicket = team1wicket + 1;
@@ -58,9 +61,11 @@ batBtn.addEventListener("click", () => {
 
   numberOfBalls = numberOfBalls + 1;
 
-  if (team1wicket === 2) {
+  if (team1wicket === 2 && team1flag === true) {
+    team1flag = false;
     numberOfBalls = 6;
-  } else if (team2wicket === 2) {
+  } else if (team2wicket === 2 && team2flag == true) {
+    team2flag = false;
     numberOfBalls = 12;
   }
 
